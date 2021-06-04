@@ -1,6 +1,6 @@
-* AWS SSO LOGIN
+# AWS SSO LOGIN
 
-** Getting Started
+## Getting Started
 
 This application depends on accounts being in your /home/{user}/.aws/config. This means you will need to run the following:
 
@@ -22,7 +22,7 @@ Once you are logged in you can then run:
 aws-sso-login
 ```
 
-** Installation
+## Installation
 
 This application is written in go. You can install the application by running the following command in the root of the directory:
 
