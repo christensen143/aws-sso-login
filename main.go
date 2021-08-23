@@ -51,6 +51,7 @@ func main() {
 	sessionNameInitial := string(sessionNameOut)
 	// truncate the username to adhere to aws sts requirements
 	sessionName := truncateString(sessionNameInitial, 16)
+	sessionNameFinal := strings.TrimSpace(sessionName)
 
 	// get a list of the current profiles in ~/.aws/config
   profilesOut, profileErr := exec.Command(awsExecutable, "configure", "list-profiles").Output()
@@ -108,7 +109,7 @@ func main() {
 
 	input := &sts.AssumeRoleInput{
 		RoleArn: roleArn,
-		RoleSessionName: &sessionName,
+		RoleSessionName: &sessionNameFinal,
 	}
 	
 	result, err := TakeRole(context.TODO(), stsClient, input)
